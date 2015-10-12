@@ -90,6 +90,8 @@
 
         if(!!_appId) {
             document.getElementById('appId').value = _appId;
+
+            console.log("_appId Value:", _appId);
         }
 
         var _accessToken = Cookies.get('accessToken') || null;
