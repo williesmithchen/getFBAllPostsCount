@@ -84,8 +84,46 @@
 
         <script src="./js-cookie-master/src/js.cookie.js"></script>
 
-        <script>
+        <!--Head/CDN [CSS]-->
+        <!--CSS Reset-->
+        <!-- <link rel="stylesheet" href="/css/index.min.css"> -->
 
+    </head>
+    <body>
+
+        <!--if user no script-->
+        <noscript>
+            <header>
+                <h1>Oops!</h1>
+                <h2>Your browser does not support JavaScript, we suggest you can open it to get the best experience.</h2>
+            </header>
+        </noscript>
+
+        <!--Header-->
+        <header>
+            <h1>Get FB All Posts Count</h1>
+            <h2>We Need Sum Facebook Posts Count.</h2>
+        </header>
+
+        <!--Main Area-->
+        <main>
+            <label for="appId">
+                <span>App ID：</span><input id="appId" type="text" value="" />
+            </label>
+            <br/>
+            <label for="accessToken">
+                <span>Access Token：</span><input id="accessToken" type="text" value="" />
+            </label>
+            <hr/>
+            <button onClick="window.test();">Submit</button>
+        </main>
+
+        <!--Footer-->
+        <footer>
+            <h2>EmptyProject Footer</h2>
+        </footer>
+
+        <script>
         var _appId = Cookies.get('appId') || null;
 
         if(!!_appId) {
@@ -151,45 +189,6 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
         </script>
-
-        <!--Head/CDN [CSS]-->
-        <!--CSS Reset-->
-        <!-- <link rel="stylesheet" href="/css/index.min.css"> -->
-
-    </head>
-    <body>
-
-        <!--if user no script-->
-        <noscript>
-            <header>
-                <h1>Oops!</h1>
-                <h2>Your browser does not support JavaScript, we suggest you can open it to get the best experience.</h2>
-            </header>
-        </noscript>
-
-        <!--Header-->
-        <header>
-            <h1>Get FB All Posts Count</h1>
-            <h2>We Need Sum Facebook Posts Count.</h2>
-        </header>
-
-        <!--Main Area-->
-        <main>
-            <label for="appId">
-                <span>App ID：</span><input id="appId" type="text" value="" />
-            </label>
-            <br/>
-            <label for="accessToken">
-                <span>Access Token：</span><input id="accessToken" type="text" value="" />
-            </label>
-            <hr/>
-            <button onClick="window.test();">Submit</button>
-        </main>
-
-        <!--Footer-->
-        <footer>
-            <h2>EmptyProject Footer</h2>
-        </footer>
 
         <!--GA-->
         <!--<script>
