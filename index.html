@@ -127,15 +127,17 @@
         var _appId = Cookies.get('appId') || null;
 
         if(!!_appId) {
-            document.getElementById('appId').value = _appId;
+            document.getElementById('appId').value = '' + _appId;
 
-            console.log("_appId Value:", _appId);
+            console.log("_appId Value:", '' + _appId);
         }
 
         var _accessToken = Cookies.get('accessToken') || null;
 
         if(_accessToken) {
-            document.getElementById('accessToken').value = _appId;
+            document.getElementById('accessToken').value = _accessToken;
+
+            console.log("_appId Value:", '' + _accessToken);
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////
