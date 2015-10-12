@@ -110,7 +110,11 @@
 
             if(!!_AppIDObj.value) {
 
+                //turn off
                 initonce = true;
+
+                //set cookie
+                Cookies.set('appId', '' + _AppIDObj.value + '');
 
                 FB.init({
                     appId: '' + _AppIDObj.value + '',
