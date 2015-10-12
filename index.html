@@ -82,32 +82,47 @@
         <script>window.jQuery || document.write('<script src="./js/jquery/dist/jquery.min.js"><\/script>');</script>
         <!--<![endif]-->
 
+        <script src="./js-cookie-master/src/js.cookie.js"></script>
+
         <script>
-          window.fbAsyncInit = function() {
+
+        var _appId = Cookies.get('appId') || null;
+
+        if(!!_appId) {
+            document.getElementById('appId').value = _appId;
+        }
+
+        var _accessToken = Cookies.get('accessToken') || null;
+
+        if(_accessToken) {
+            document.getElementById('accessToken').value = _appId;
+        }
+
+        window.fbAsyncInit = function() {
             FB.init({
-              appId      : '442137115889177',
-              xfbml      : true,
-              version    : 'v2.5'
+                appId: '' + document.getElementById('appId').value + '',
+                xfbml: true,
+                oauth: true,
+                version: 'v2.5'
             });
 
-            FB.api(
-                "/me",
-                function (response) {
-                    console.log(response);
-                  if (response && !response.error) {
-                    /* handle the result */
-                  }
-                }
-            );
-          };
+            FB.api("/me", function (response) {
 
-          (function(d, s, id){
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) {return;}
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/zh_TW/sdk.js";
-             fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
+                console.log(response);
+
+                if (response && !response.error) {
+                    /* handle the result */
+                }
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/zh_TW/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
         </script>
 
         <!--Head/CDN [CSS]-->
@@ -127,15 +142,20 @@
 
         <!--Header-->
         <header>
-            <h1>EmprtProject Title</h1>
-            <h2>EmptyProject Sub Title</h2>
+            <h1>Get FB All Posts Count</h1>
+            <h2>We Need Sum Facebook Posts Count.</h2>
         </header>
 
         <!--Main Area-->
         <main>
-            <!-- <div class="left"></div> -->
-            <div>Main</div>
-            <!-- <div class="right"></div> -->
+            <label for="appId">
+                <span>App ID：</span><input id="appId" type="text" value="" />
+            </label>
+            <br/>
+            <label for="accessToken">
+                <span>Access Token：</span><input id="accessToken" type="text" value="" />
+            </label>
+            <hr/>
         </main>
 
         <!--Footer-->
