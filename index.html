@@ -115,7 +115,7 @@
                 <span>Access Token：</span><input id="accessToken" type="text" value="" />
             </label>
             <hr/>
-            <button onClick="window.test();">Submit</button>
+            <button onClick="window.getFBAllPostsCount();">Submit</button>
         </main>
 
         <!--Footer-->
@@ -142,6 +142,7 @@
 
         /////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //init once.
         window.initonce = false;
 
         window.fbAsyncInit = function() {
@@ -152,10 +153,10 @@
 
             if(!!_AppIDObj.value) {
 
-                //turn off
+                //Turn Init Off.
                 initonce = true;
 
-                //set cookie
+                //Set Cookie
                 Cookies.set('appId', '' + _AppIDObj.value + '');
 
                 FB.init({
@@ -167,20 +168,30 @@
             }
         };
 
-        window.test = function() {
+        window.getFBAllPostsCount = function() {
 
             if(!!!window.initonce) {
+
+                //Exe Init.
                 window.fbAsyncInit();
+
+                //Delay 300ms
+                setTimeout(function() {
+                    window.getFBAllPostsCount();
+                }, 300);
+
+            }else{
+
+                FB.api("/me", function (response) {
+
+                    console.log(response);
+
+                    if (response && !response.error) {
+                        /* handle the result */
+                    }
+                });
+
             }
-
-            FB.api("/me", function (response) {
-
-                console.log(response);
-
-                if (response && !response.error) {
-                    /* handle the result */
-                }
-            });
         };
 
         (function(d, s, id){
