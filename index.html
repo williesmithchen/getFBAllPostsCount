@@ -98,13 +98,34 @@
             document.getElementById('accessToken').value = _appId;
         }
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+
+        window.initonce = false;
+
         window.fbAsyncInit = function() {
-            FB.init({
-                appId: '' + document.getElementById('appId').value + '',
-                xfbml: true,
-                oauth: true,
-                version: 'v2.5'
-            });
+
+            var _AppIDObj = document.getElementById('appId');
+
+            console.log("appId Value:", _AppIDObj.value);
+
+            if(!!_AppIDObj.value) {
+
+                initonce = true;
+
+                FB.init({
+                    appId: '' + _AppIDObj.value + '',
+                    xfbml: true,
+                    oauth: true,
+                    version: 'v2.5'
+                });
+            }
+        };
+
+        window.test = function() {
+
+            if(!!!window.initonce) {
+                window.fbAsyncInit();
+            }
 
             FB.api("/me", function (response) {
 
@@ -156,6 +177,7 @@
                 <span>Access Token：</span><input id="accessToken" type="text" value="" />
             </label>
             <hr/>
+            <button onClick="window.test();">Submit</button>
         </main>
 
         <!--Footer-->
