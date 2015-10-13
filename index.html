@@ -239,6 +239,14 @@
                 version: 'v2.5'
             });
 
+            //check Login Status
+            FB.getLoginStatus(function (response) {
+
+                // 程式有連結到 Facebook 帳號
+                console.log("check authorized success [response]:", response);
+
+            }
+
         };
 
         //get Facebook Login Authorized
