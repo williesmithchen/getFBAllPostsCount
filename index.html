@@ -179,6 +179,9 @@
         #getFBLogin {
             display: none;
         }
+        #message {
+            text-align: right;
+        }
         </style>
 
     </head>
@@ -204,6 +207,7 @@
 
         <!--Main Area-->
         <main>
+            <p id="message"></p>
             <div>
                 <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
                 <button onClick="window.getFBAllPostsCount();">Execute</button>
@@ -249,6 +253,14 @@
                 if (response.status === "connected") {
 
                     $("#getFBLogin").hide();
+
+                    FB.api("/me", function (response) {
+
+                        console.log("/me :", response);
+
+                        $("#message").text("Welocome Back " + response.name + "!");
+
+                    });
 
                 }else{
 
@@ -313,15 +325,7 @@
                         //Test Get User Data
                         if(window.uid && window.accessToken) {
 
-                            FB.api("/me", function (response) {
 
-                                console.log("/me :", response);
-
-                                /*if (response && !response.error) {
-
-                                }*/
-
-                            });
 
                         }
 
