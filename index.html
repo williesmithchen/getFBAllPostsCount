@@ -176,6 +176,9 @@
             outline: none;
             border: 2px solid #3B5998;
         }
+        #getFBLogin {
+            display: none;
+        }
         </style>
 
     </head>
@@ -242,8 +245,16 @@
             //check Login Status
             FB.getLoginStatus(function (response) {
 
-                // 程式有連結到 Facebook 帳號
-                console.log("check authorized success [response]:", response);
+                //authorized success now can connected
+                if (response.status === "connected") {
+
+                    $("#getFBLogin").hide();
+
+                }else{
+
+                    $("#getFBLogin").show();
+
+                }
 
             });
 
