@@ -78,11 +78,11 @@
         <script type="text/javascript" src="assets/public/js/html5shiv/dist/html5shiv.min.js"></script>
         <![endif]-->
         <!--[if gte IE 9]><!-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="./js/jquery/dist/jquery.min.js"><\/script>');</script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript">window.jQuery || document.write('<script src="./js/jquery/dist/jquery.min.js"><\/script>');</script>
         <!--<![endif]-->
 
-        <script src="./js-cookie-master/src/js.cookie.js"></script>
+        <script type="text/javascript" src="./js-cookie-master/src/js.cookie.js"></script>
 
         <!--Head/CDN [CSS]-->
         <!--CSS Reset-->
@@ -107,9 +107,9 @@
 
         <!--Main Area-->
         <main>
-            <button id="getFBLogin" onClick="getFBLogin();">FaceBook Login</button>
-            <hr/>
-            <button onClick="window.getFBAllPostsCount();">Submit</button>
+            <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
+            <br/>
+            <button onClick="window.getFBAllPostsCount();">Execute</button>
         </main>
 
         <!--Footer-->
@@ -117,21 +117,18 @@
             <h2>EmptyProject Footer</h2>
         </footer>
 
-        <script>
-
-        var _accessToken = Cookies.get('accessToken') || null;
-
-        if(_accessToken) {
-            document.getElementById('accessToken').value = _accessToken;
-
-            console.log("accessToken Value:", '' + _accessToken);
-        }
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////
+        <script type="text/javascript">
 
         //init once.
         window.initonce = false;
 
+        //uid
+        window.uid = null;
+
+        //accessToken
+        window.accessToken = null;
+
+        //fbAsyncInit on pageload
         window.fbAsyncInit = function() {
 
             //Turn Init Off.
@@ -144,57 +141,80 @@
                 version: 'v2.5'
             });
 
+            //Delay 300ms to Exe getFBAllPostsCount.
+            setTimeout(function() {
+                window.getFBAllPostsCount();
+            }, 300);
+
         };
 
+        //get Facebook Login Authorized
         window.getFBLogin = function() {
 
             FB.login(function(response) {
+
                 console.log("FB.login", response);
+
             },{ scope: 'read_insights' });
 
         };
 
+        //getFBAllPostsCount
         window.getFBAllPostsCount = function() {
 
+            //Check init once
             if(!!!window.initonce) {
 
                 //Exe Init.
                 window.fbAsyncInit();
 
-                //Delay 300ms
-                setTimeout(function() {
-                    window.getFBAllPostsCount();
-                }, 300);
+            } else {
 
-            }else{
-
+                //check Login Status
                 FB.getLoginStatus(function (response) {
 
+                    //authorized success now can connected
                     if (response.status === "connected") {
 
                         // 程式有連結到 Facebook 帳號
-                        console.log("response", response);
-                        var uid = response.authResponse.userID;// 取得 UID
-                        var accessToken = response.authResponse.accessToken;// 取得 accessToken
+                        console.log("authorized success [response]:", response);
 
-                        FB.api("/me", function (response) {
+                        // Get UID
+                        window.uid = response.authResponse.userID;
+                        // Get accessToken
+                        window.accessToken = response.authResponse.accessToken;
 
-                            console.log(response);
+                        //Test Get User Data
+                        if(window.uid && window.accessToken) {
 
-                            if (response && !response.error) {
-                                /* handle the result */
-                            }
-                        });
+                            FB.api("/me", function (response) {
+
+                                console.log("/me :", response);
+
+                                /*if (response && !response.error) {
+
+                                }*/
+
+                            });
+
+                        }
 
                     } else if (response.status === "not_authorized") {
 
-                        // 帳號沒有連結到 Facebook 程式
-                        console.log("請允許授權！", response);
+                        // 帳號沒有授權 Facebook App 程式 撈取資料
+                        console.log("not_authorized  [response]:", response);
+
+                        //getFBLogin
+                        window.getFBLogin();
 
                     } else {
-                        // 帳號沒有登入
-                        // 在本例子中，此段永遠不會進入...XD
+                        // 帳號沒有登入 請膽擊Facebook Login按鈕執行
+                        alert("please click Facebook login button to authorized execute.");
                     }
+
+                    window.uid = null;
+                    window.accessToken = null;
+
                 });
 
             }
