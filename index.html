@@ -157,6 +157,7 @@
             FB.login(function(response) {
 
                 console.log("FB.login", response);
+                window.fbAsyncInit();
 
             },{ scope: 'read_insights' });
 
