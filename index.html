@@ -144,22 +144,26 @@
                 version: 'v2.5'
             });
 
-            //Delay 300ms to Exe getFBAllPostsCount.
-            setTimeout(function() {
-                window.getFBAllPostsCount();
-            }, 300);
-
         };
 
         //get Facebook Login Authorized
         window.getFBLogin = function() {
 
-            FB.login(function(response) {
+            //Check init once
+            if(!!!window.initonce) {
 
-                console.log("FB.login", response);
+                //Exe Init.
                 window.fbAsyncInit();
 
-            },{ scope: 'read_insights' });
+            } else {
+
+                FB.login(function(response) {
+
+                    console.log("FB.login", response);
+
+                },{ scope: 'read_insights' });
+
+            }
 
         };
 
@@ -203,7 +207,7 @@
 
                         }
 
-                    } else if (response.status === "not_authorized") {
+                    } else if (response.status === "not_authorized" || !!!response.authResponse) {
 
                         // 帳號沒有授權 Facebook App 程式 撈取資料
                         console.log("not_authorized  [response]:", response);
