@@ -141,12 +141,22 @@
 
         <style type="text/css">
         html, body {
-            font-size: 16px; }
+            font-size: 16px;
+        }
         header,main,footer {
             max-width:640px;
             min-width: 320px;
             width:100%;
             margin:0 auto;
+        }
+        main > div {
+            text-align: center;
+        }
+        button{
+            background-color: transparent;
+            border-width: 0px;
+            padding: 1em;
+            margin: 1em auto;
         }
         </style>
 
@@ -169,9 +179,10 @@
 
         <!--Main Area-->
         <main>
-            <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
-            <br/>
-            <button onClick="window.getFBAllPostsCount();">Execute</button>
+            <div>
+                <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
+                <button onClick="window.getFBAllPostsCount();">Execute</button>
+            </div>
         </main>
 
         <!--Footer-->
