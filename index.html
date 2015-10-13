@@ -108,14 +108,6 @@
         <!--Main Area-->
         <main>
             <button id="getFBLogin" onClick="getFBLogin();">FaceBook Login</button>
-            <br/>
-            <label for="appId">
-                <span>App ID：</span><input id="appId" type="text" value="" />
-            </label>
-            <br/>
-            <label for="accessToken">
-                <span>Access Token：</span><input id="accessToken" type="text" value="" />
-            </label>
             <hr/>
             <button onClick="window.getFBAllPostsCount();">Submit</button>
         </main>
@@ -126,20 +118,13 @@
         </footer>
 
         <script>
-        var _appId = Cookies.get('appId') || null;
-
-        if(!!_appId) {
-            document.getElementById('appId').value = '' + _appId;
-
-            console.log("_appId Value:", '' + _appId);
-        }
 
         var _accessToken = Cookies.get('accessToken') || null;
 
         if(_accessToken) {
             document.getElementById('accessToken').value = _accessToken;
 
-            console.log("_appId Value:", '' + _accessToken);
+            console.log("accessToken Value:", '' + _accessToken);
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -149,31 +134,24 @@
 
         window.fbAsyncInit = function() {
 
-            var _AppIDObj = document.getElementById('appId');
+            //Turn Init Off.
+            initonce = true;
 
-            console.log("appId Value:", _AppIDObj.value);
+            FB.init({
+                appId: '442137115889177',
+                xfbml: true,
+                oauth: true,
+                version: 'v2.5'
+            });
 
-            if(!!_AppIDObj.value) {
-
-                //Turn Init Off.
-                initonce = true;
-
-                //Set Cookie
-                Cookies.set('appId', '' + _AppIDObj.value + '');
-
-                FB.init({
-                    appId: '' + _AppIDObj.value + '',
-                    xfbml: true,
-                    oauth: true,
-                    version: 'v2.5'
-                });
-            }
         };
 
         window.getFBLogin = function() {
+
             FB.login(function(response) {
-                console.log(response);
+                console.log("FB.login", response);
             },{ scope: 'read_insights' });
+
         };
 
         window.getFBAllPostsCount = function() {
