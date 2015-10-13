@@ -182,12 +182,32 @@
 
             }else{
 
-                FB.api("/me", function (response) {
+                FB.getLoginStatus(function (response) {
 
-                    console.log(response);
+                    if (response.status === "connected") {
 
-                    if (response && !response.error) {
-                        /* handle the result */
+                        // 程式有連結到 Facebook 帳號
+                        console.log("response", response);
+                        var uid = response.authResponse.userID;// 取得 UID
+                        var accessToken = response.authResponse.accessToken;// 取得 accessToken
+
+                        FB.api("/me", function (response) {
+
+                            console.log(response);
+
+                            if (response && !response.error) {
+                                /* handle the result */
+                            }
+                        });
+
+                    } else if (response.status === "not_authorized") {
+
+                        // 帳號沒有連結到 Facebook 程式
+                        console.log("請允許授權！");
+
+                    } else {
+                        // 帳號沒有登入
+                        // 在本例子中，此段永遠不會進入...XD
                     }
                 });
 
