@@ -221,7 +221,7 @@
             <p id="message"></p>
             <div>
                 <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
-                <button onClick="window.getFBAllPostsCount();">Execute</button>
+                <button id="execute" onClick="window.getFBAllPostsCount();">Execute</button>
             </div>
         </main>
 
@@ -264,7 +264,9 @@
                 if (response.status === "connected") {
 
                     $("#getFBLogin").hide();
+                    $("#execute").show();
 
+                    //Welcome Message Display.
                     FB.api("/me", function (response) {
 
                         console.log("/me :", response);
@@ -276,6 +278,7 @@
                 }else{
 
                     $("#getFBLogin").show();
+                    $("#execute").hide();
 
                 }
 
@@ -299,6 +302,9 @@
                 FB.login(function(response) {
 
                     console.log("FB.login", response);
+
+                    //reload
+                    window.location.replace( window.location.href );
 
                 },{ scope: 'read_insights' });
 
