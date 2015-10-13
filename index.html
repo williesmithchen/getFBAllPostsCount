@@ -107,6 +107,8 @@
 
         <!--Main Area-->
         <main>
+            <button id="getFBLogin" onClick="getFBLogin();">FaceBook Login</button>
+            <br/>
             <label for="appId">
                 <span>App ID：</span><input id="appId" type="text" value="" />
             </label>
@@ -166,6 +168,12 @@
                     version: 'v2.5'
                 });
             }
+        };
+
+        window.getFBLogin = function() {
+            FB.login(function(response) {
+                console.log(response);
+            },{ scope: 'read_insights' });
         };
 
         window.getFBAllPostsCount = function() {
