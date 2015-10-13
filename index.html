@@ -231,8 +231,14 @@
                 version: 'v2.5'
             });
 
-            //Check getFBLogin
-            window.getFBLogin();
+            $(window).load(function(){
+                setTimeout(function(){
+
+                    //Check getFBLogin
+                    window.getFBLogin();
+
+                }, 2000);
+            });
 
         };
 
