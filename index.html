@@ -87,6 +87,9 @@
 
         <script type="text/javascript" src="./js-cookie-master/src/js.cookie.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.min.js"></script>
+
         <!--Head/CDN [CSS]-->
         <!--CSS Reset-->
         <style type="text/css">
@@ -256,6 +259,7 @@
                         <span>Result：</span>
                         <span id="result">0</span>
                     </p>
+                    <table id="resulttable"></table>
                 </div>
             </div>
         </main>
@@ -355,7 +359,7 @@
                     if(!!response && !!response.data && response.data.length === 0) {
                         $("#execute").show();
                         console.log("==result==")
-                        console.log(window._resultArray);
+                        console.log(window._resultArray.length ,window._resultArray);
                         console.table(window._resultArray);
                     }
 
