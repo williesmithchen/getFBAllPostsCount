@@ -275,6 +275,7 @@
         window.pid = null;
 
         window._result = null;
+        window._resultArray = null;
 
         $(function() {
             window.since = $( "#since" );
@@ -336,6 +337,8 @@
                             window.totalcount = window.totalcount + response.data.length;
                             //output result
                             window._result.text(window.totalcount);
+                            //push
+                            window._resultArray.push(response.data);
                         }
                     }
 
@@ -351,6 +354,7 @@
 
                     if(!!response && !!response.data && response.data.length === 0) {
                         $("#execute").show();
+                        console.table(window._resultArray);
                     }
 
                 });
@@ -442,6 +446,8 @@
 
             window.totalcount = 0;
 
+            window._resultArray = [];
+
             //Check init once
             if(!!!window.initonce) {
 
@@ -526,6 +532,8 @@
                                         window.totalcount = window.totalcount + response.posts.data.length;
                                         //output result
                                         window._result.text(window.totalcount);
+                                        //push
+                                        window._resultArray.push(response.posts.data);
                                     }
                                 }
 
