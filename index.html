@@ -274,10 +274,13 @@
 
         window.pid = null;
 
+        window._result = null;
+
         $(function() {
             window.since = $( "#since" );
             window.until = $( "#until" );
             window.pid = $( "#pid" );
+            window._result = $("#result");
 
             window.since.datepicker({
                 regional: "zh-TW",
@@ -318,8 +321,34 @@
 
             if(!!url) {
 
-                $.get(url, function(res) {
-                    console.log(res);
+                $.get(url, function(response) {
+
+                    console.log(response);
+
+                    //is no error
+                    if (response && !response.error) {
+
+                        console.log(response);
+                        console.log(response.posts);
+                        console.log(response.posts.data);
+                        console.log(response.posts.data.length);
+
+                        if (response && response.posts && response.posts.data &&
+                            (response.posts.data.length >= 0 || response.posts.data.length < 100)) {
+                            window.totalcount = window.totalcount + response.posts.data.length;
+                            //output result
+                            window._result.text(window.totalcount);
+                        }
+                    }
+
+                    //if over 100 && has next
+                    console.log(response.posts.paging);
+                    console.log(response.posts.paging.next);
+                    if(response.posts.data.length >= 100 && response.posts.paging && response.posts.paging.next) {
+                        setTimeout(function() {
+                            window.loopquery(response.posts.paging.next);
+                        }, 300);
+                    }
                 });
 
             }
@@ -487,6 +516,8 @@
                                     if (response && response.posts && response.posts.data &&
                                         (response.posts.data.length >= 0 || response.posts.data.length < 100)) {
                                         window.totalcount = window.totalcount + response.posts.data.length;
+                                        //output result
+                                        window._result.text(window.totalcount);
                                     }
                                 }
 
