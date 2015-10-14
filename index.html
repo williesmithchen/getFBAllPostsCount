@@ -191,6 +191,9 @@
         label{
             display: block;
         }
+        label > span{
+            width:5em;
+        }
         #getFBLogin {
             display: none;
         }
@@ -229,13 +232,16 @@
                 <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
                 <div id="execute">
                     <label for="pid">
-                        Pid：<input id="pid" type="text" name="since" placeholde="fanspagename,fbid..." />
+                        <span>Pid：</span>
+                        <input id="pid" type="text" name="since" placeholde="fanspagename,fbid..." />
                     </label>
                     <label for="since">
-                        Since：<input id="since" type="text" class="inputdate" name="since" />
+                        <span>Since：</span>
+                        <input id="since" type="text" class="inputdate" name="since" />
                     </label>
                     <label for="until">
-                        Until：<input id="until" type="text" class="inputdate" name="until" />
+                        <span>Until：</span>
+                        <input id="until" type="text" class="inputdate" name="until" />
                     </label>
                     <button onClick="window.getFBAllPostsCount();">Execute</button>
                 </div>
