@@ -410,8 +410,24 @@
 
                         } else if (window.uid && window.accessToken) {
 
-                            var min = new Date();
-                            var max = new Date();
+                            //Cookies Set
+                            Cookies.set("pid", window.pid.value())
+
+                            var min = null;
+                            var max = null;
+
+                            if ( !!window.since.datepicker( "getDate" ) ) {
+                                min = window.since.datepicker( "getDate" );
+                            } else {
+                                min = new Date();
+                            }
+
+                            if ( !!window.until.datepicker( "getDate" ) ) {
+                                max = window.until.datepicker( "getDate" );
+                            } else {
+                                max = new Date();
+                            }
+
                             min.setHours(0);
                             min.setMinutes(0);
                             min.setSeconds(0);
@@ -422,7 +438,7 @@
                             max.setSeconds(59);
                             max.setMilliseconds(999);
 
-                            FB.api('/' + window.pid + '',
+                            FB.api('/' +window.pid.value() + '',
                               'GET', {"fields":"posts.limit(100)"+
                                 ".since("
                                     + min.toISOString() +
