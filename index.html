@@ -197,6 +197,9 @@
             text-align: right;
             padding-right: 0.5em;
         }
+        em {
+            color: red;
+        }
         #getFBLogin {
             display: none;
         }
@@ -235,16 +238,16 @@
                 <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
                 <div id="execute">
                     <label for="pid">
-                        <span>Pid：</span>
+                        <span><em>*</em>Pid：</span>
                         <input id="pid" type="text" name="since" placeholder="fanspagename,fbid..." />
                     </label>
                     <label for="since">
                         <span>Since：</span>
-                        <input id="since" type="text" class="inputdate" name="since" />
+                        <input id="since" type="text" class="inputdate" name="since" placeholder="default is today 00:00:00" />
                     </label>
                     <label for="until">
                         <span>Until：</span>
-                        <input id="until" type="text" class="inputdate" name="until" />
+                        <input id="until" type="text" class="inputdate" name="until" placeholder="default is today 23:59:59" />
                     </label>
                     <button onClick="window.getFBAllPostsCount();">Execute</button>
                 </div>
@@ -401,7 +404,11 @@
                         window.accessToken = response.authResponse.accessToken;
 
                         //Test Get User Data
-                        if(window.uid && window.accessToken && !!window.pid.value()) {
+                        if( !!window.pid.value() ) {
+
+                            alert("please enter a Pid.");
+
+                        } else if (window.uid && window.accessToken) {
 
                             var min = new Date();
                             var max = new Date();
