@@ -508,13 +508,14 @@
                                 //is no error
                                 if (!!response && !!!response.error) {
 
-                                    console.log(response);
-                                    console.log(response.posts);
-                                    console.log(response.posts.data);
-                                    console.log(response.posts.data.length);
-
                                     if (!!response && !!response.posts && !!response.posts.data &&
                                         (response.posts.data.length >= 0 || response.posts.data.length <= 100)) {
+
+                                        console.log(response);
+                                        console.log(response.posts);
+                                        console.log(response.posts.data);
+                                        console.log(response.posts.data.length);
+
                                         window.totalcount = window.totalcount + response.posts.data.length;
                                         //output result
                                         window._result.text(window.totalcount);
@@ -522,9 +523,11 @@
                                 }
 
                                 //if over 100 && has next
-                                console.log(response.posts.paging);
-                                console.log(response.posts.paging.next);
                                 if(!!response && !!response.posts && !!response.posts.paging && !!response.posts.paging.next) {
+
+                                    console.log(response.posts.paging);
+                                    console.log(response.posts.paging.next);
+
                                     window.loopquery(response.posts.paging.next);
                                 }
 
