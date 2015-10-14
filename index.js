@@ -13,13 +13,13 @@ var CommentList = React.createClass({
   render: function() {
     return (
       <tr className="commentList">
-        <Comment />
+        <CommentItem />
       </tr>
     );
   }
 });
 
-var Comment = React.createClass({
+var CommentItem = React.createClass({
   render: function() {
     return (
       <th className="commentAuthor">
@@ -28,6 +28,14 @@ var Comment = React.createClass({
       <td className="comment">
         {this.props.children}
       </td>
+    );
+  }
+});
+
+var Comment = React.createClass({
+  render: function() {
+    return (
+      <CommentBox />
     );
   }
 });
