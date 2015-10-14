@@ -248,11 +248,11 @@
                     </label>
                     <label for="since">
                         <span>Since：</span>
-                        <input id="since" type="text" class="inputdate" name="since" placeholder="default is today 00:00:00" />
+                        <input id="since" type="text" class="inputdate" name="since" placeholder="Default is Browse Local Time Today(00:00:00)" />
                     </label>
                     <label for="until">
                         <span>Until：</span>
-                        <input id="until" type="text" class="inputdate" name="until" placeholder="default is today 23:59:59" />
+                        <input id="until" type="text" class="inputdate" name="until" placeholder="Default is Browse Local Time Today(23:59:59)" />
                     </label>
                     <button onClick="window.getFBAllPostsCount();">Execute</button>
                 </div>
@@ -261,7 +261,7 @@
                         <span>Result：</span>
                         <span id="result">0</span>
                     </p>
-                    <table id="resulttable"></table>
+                    <div id="resulttable"></div>
                 </div>
             </div>
         </main>
@@ -271,13 +271,6 @@
             <span>© williesmithchen.</span>
             <h3>All rights reserved.</h3>
         </footer>
-
-        <script type="text/babel">
-          ReactDOM.render(
-            <h1>Hello, world!</h1>,
-            document.getElementById('resulttable')
-          );
-        </script>
 
         <script type="text/javascript">
 
@@ -595,6 +588,8 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
         </script>
+
+        <script type="text/babel" src="./index.js"></script>
 
         <!--GA-->
         <!--<script>
