@@ -188,6 +188,9 @@
             background-color: white;
             color: #3B5998;
         }
+        label{
+            display: block;
+        }
         #getFBLogin {
             display: none;
         }
@@ -225,6 +228,9 @@
             <div>
                 <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
                 <div id="execute">
+                    <label for="pid">
+                        Pid：<input id="pid" type="text" name="since" placeholde="fanspagename,fbid..." />
+                    </label>
                     <label for="since">
                         Since：<input id="since" type="text" class="inputdate" name="since" />
                     </label>
@@ -248,9 +254,12 @@
         window.since = null;
         window.until = null;
 
+        window.pid = null;
+
         $(function() {
             window.since = $( "#since" );
             window.until = $( "#until" );
+            window.pid = $( "#pid" );
 
             window.since.datepicker({
                 regional: "zh-TW",
@@ -270,6 +279,10 @@
                     window.since.datepicker( "option", "maxDate", selectedDate );
                 }
             });
+
+            if(!!Cookies.get("pid")) {
+                window.pid.value( Cookies.get("pid") );
+            }
         });
 
         //init once.
@@ -379,7 +392,7 @@
                         window.accessToken = response.authResponse.accessToken;
 
                         //Test Get User Data
-                        if(window.uid && window.accessToken && window.pid) {
+                        if(window.uid && window.accessToken && !!window.pid.value()) {
 
                             var min = new Date();
                             var max = new Date();
