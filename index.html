@@ -332,8 +332,7 @@
                         console.log(response.data);
                         console.log(response.data.length);
 
-                        if (!!response && !!response.data &&
-                            (response.data.length >= 0 || response.data.length <= 100)) {
+                        if (!!response && !!response.data && response.data.length != 0) {
                             window.totalcount = window.totalcount + response.data.length;
                             //output result
                             window._result.text(window.totalcount);
@@ -349,6 +348,11 @@
                             window.loopquery(response.paging.next);
                         }, 300);
                     }
+
+                    if(!!response && !!response.data && response.data.length === 0) {
+                        $("#execute").show();
+                    }
+
                 });
 
             }
@@ -432,6 +436,8 @@
 
             console.log("==getFBAllPostsCount==");
 
+            $("#execute").hide();
+
             window.totalcount = 0;
 
             //Check init once
@@ -508,8 +514,7 @@
                                 //is no error
                                 if (!!response && !!!response.error) {
 
-                                    if (!!response && !!response.posts && !!response.posts.data &&
-                                        (response.posts.data.length >= 0 || response.posts.data.length <= 100)) {
+                                    if (!!response && !!response.posts && !!response.posts.data && response.posts.data.length >= 0) {
 
                                         console.log(response);
                                         console.log(response.posts);
