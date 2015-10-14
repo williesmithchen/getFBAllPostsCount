@@ -490,8 +490,8 @@
                                     }
                                 }
 
-                                //if over 100
-                                if(response.posts.data.length >= 100 && response.paging && response.paging.next) {
+                                //if over 100 && has next
+                                if(response.posts.data.length >= 100 && response.posts.paging && response.posts.paging.next) {
                                     window.loopquery(response.paging.next);
                                 }
 
