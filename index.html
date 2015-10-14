@@ -251,6 +251,12 @@
                     </label>
                     <button onClick="window.getFBAllPostsCount();">Execute</button>
                 </div>
+                <div>
+                    <p>
+                        <span>Result：</span>
+                        <span id="result">0</span>
+                    </p>
+                </div>
             </div>
         </main>
 
@@ -305,6 +311,20 @@
 
         //accessToken
         window.accessToken = null;
+
+        window.loopquery = function(url) {
+
+            console.log("==loopquery==");
+
+            if(!!url) {
+
+                $.get(url, function(res) {
+                    console.log(res);
+                });
+
+            }
+
+        };
 
         //fbAsyncInit on pageload
         window.fbAsyncInit = function() {
@@ -376,10 +396,14 @@
 
         };
 
+        window.totalcount = 0;
+
         //getFBAllPostsCount
         window.getFBAllPostsCount = function() {
 
             console.log("==getFBAllPostsCount==");
+
+            window.totalcount = 0;
 
             //Check init once
             if(!!!window.initonce) {
@@ -458,6 +482,15 @@
                                     console.log(response.posts);
                                     console.log(response.posts.data);
                                     console.log(response.posts.data.length);
+                                    if (response && response.posts && response.posts.data &&
+                                        (response.posts.data.length >=0 || response.posts.data.length < 100) {
+                                        window.totalcount = window.totalcount + response.posts.data.length;
+                                    }
+                                }
+
+                                //if over 100
+                                if(response.posts.data.length >= 100 && response.paging && response.paging.next) {
+                                    window.loopquery(response.paging.next);
                                 }
 
                               }
