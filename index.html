@@ -333,7 +333,7 @@
                         console.log(response.data.length);
 
                         if (response && response.data &&
-                            (response.data.length >= 0 || response.data.length < 100)) {
+                            (response.data.length >= 0 || response.data.length <= 100)) {
                             window.totalcount = window.totalcount + response.data.length;
                             //output result
                             window._result.text(window.totalcount);
@@ -343,7 +343,7 @@
                     //if over 100 && has next
                     console.log(response.paging);
                     console.log(response.paging.next);
-                    if(response.data.length >= 100 && response.paging && response.paging.next) {
+                    if(response.paging && response.paging.next) {
                         setTimeout(function() {
                             window.loopquery(response.paging.next);
                         }, 300);
@@ -513,7 +513,7 @@
                                     console.log(response.posts.data.length);
 
                                     if (response && response.posts && response.posts.data &&
-                                        (response.posts.data.length >= 0 || response.posts.data.length < 100)) {
+                                        (response.posts.data.length >= 0 || response.posts.data.length <= 100)) {
                                         window.totalcount = window.totalcount + response.posts.data.length;
                                         //output result
                                         window._result.text(window.totalcount);
@@ -523,7 +523,7 @@
                                 //if over 100 && has next
                                 console.log(response.posts.paging);
                                 console.log(response.posts.paging.next);
-                                if(response.posts.data.length >= 100 && response.posts.paging && response.posts.paging.next) {
+                                if(response.posts.paging && response.posts.paging.next) {
                                     window.loopquery(response.posts.paging.next);
                                 }
 
