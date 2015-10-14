@@ -403,8 +403,7 @@
                         // Get accessToken
                         window.accessToken = response.authResponse.accessToken;
 
-                        //Test Get User Data
-                        if( !!window.pid.val() ) {
+                        if( !!!window.pid.val() ) {
 
                             alert("please enter a Pid.");
 
