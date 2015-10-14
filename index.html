@@ -82,6 +82,9 @@
         <script type="text/javascript">window.jQuery || document.write('<script src="./js/jquery/dist/jquery.min.js"><\/script>');</script>
         <!--<![endif]-->
 
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
         <script type="text/javascript" src="./js-cookie-master/src/js.cookie.js"></script>
 
         <!--Head/CDN [CSS]-->
@@ -221,7 +224,15 @@
             <p id="message"></p>
             <div>
                 <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
-                <button id="execute" onClick="window.getFBAllPostsCount();">Execute</button>
+                <div id="execute">
+                    <label for="since">
+                        Since：<input id="since" type="date" name="since" />
+                    </label>
+                    <label for="until">
+                        Util：<input id="until" type="date" name="until" />
+                    </label>
+                    <button onClick="window.getFBAllPostsCount();">Execute</button>
+                </div>
             </div>
         </main>
 
@@ -232,6 +243,11 @@
         </footer>
 
         <script type="text/javascript">
+
+        //jqui
+        $(function() {
+            $( "input[type=date]" ).datepicker();
+        });
 
         //init once.
         window.initonce = false;
