@@ -22,11 +22,11 @@ var CommentList = React.createClass({
 var CommentItem = React.createClass({
   render: function() {
     return (
-      <th className="commentAuthor">
+      <th className="id">
         {this.props.id}
       </th>
-      <td className="comment">
-        {this.props.children}
+      <td className="message">
+        {this.props.message}
       </td>
     );
   }
