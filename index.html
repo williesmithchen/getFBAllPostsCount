@@ -354,6 +354,8 @@
 
                     if(!!response && !!response.data && response.data.length === 0) {
                         $("#execute").show();
+                        console.log("==result==")
+                        console.log(window._resultArray);
                         console.table(window._resultArray);
                     }
 
