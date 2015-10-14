@@ -293,7 +293,7 @@
             });
 
             if(!!Cookies.get("pid")) {
-                window.pid.value( Cookies.get("pid") );
+                window.pid.val( Cookies.get("pid") );
             }
         });
 
@@ -404,14 +404,14 @@
                         window.accessToken = response.authResponse.accessToken;
 
                         //Test Get User Data
-                        if( !!window.pid.value() ) {
+                        if( !!window.pid.val() ) {
 
                             alert("please enter a Pid.");
 
                         } else if (window.uid && window.accessToken) {
 
                             //Cookies Set
-                            Cookies.set("pid", window.pid.value())
+                            Cookies.set("pid", window.pid.val())
 
                             var min = null;
                             var max = null;
@@ -438,7 +438,7 @@
                             max.setSeconds(59);
                             max.setMilliseconds(999);
 
-                            FB.api('/' +window.pid.value() + '',
+                            FB.api('/' + window.pid.val() + '',
                               'GET', {"fields":"posts.limit(100)"+
                                 ".since("
                                     + min.toISOString() +
