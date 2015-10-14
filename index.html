@@ -491,6 +491,8 @@
                                 }
 
                                 //if over 100 && has next
+                                console.log(response.posts.paging);
+                                console.log(response.posts.paging.next);
                                 if(response.posts.data.length >= 100 && response.posts.paging && response.posts.paging.next) {
                                     window.loopquery(response.paging.next);
                                 }
