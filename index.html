@@ -246,7 +246,24 @@
 
         //jqui
         $(function() {
-            $( "input.inputdate" ).datepicker();
+            $( "#since" ).datepicker({
+                regional: "zh-TW",
+                dateFormat: "yyyy-mm-dd",
+                changeMonth: true,
+                numberOfMonths: 3,
+                onClose: function( selectedDate ) {
+                    $( "#until" ).datepicker( "option", "minDate", selectedDate );
+                }
+            });
+            $( "#until" ).datepicker({
+                regional: "zh-TW",
+                dateFormat: "yyyy-mm-dd",
+                changeMonth: true,
+                numberOfMonths: 3,
+                onClose: function( selectedDate ) {
+                    $( "#since" ).datepicker( "option", "maxDate", selectedDate );
+                }
+            });
         });
 
         //init once.
