@@ -1,0 +1,65 @@
+html, body {
+    font-size: 16px;
+}
+h1 {
+    font-size: 250%;
+}
+h2 {
+    font-size: 200%;
+}
+div.fb-like {
+    text-align: right;
+}
+header > div {
+    text-align: right;
+    padding-top: 1em;
+}
+header,main,footer {
+    max-width:640px;
+    min-width: 320px;
+    width:100%;
+    margin:0 auto;
+}
+header {
+    margin-top: 1em;
+}
+main > div {
+    text-align: center;
+}
+button{
+    display: block;
+    padding: 1em;
+    margin: 1em auto;
+    outline: none;
+    border: 2px solid white;
+
+    background-color: #3B5998;
+    color: white;
+}
+button:last-of-type {
+    border-radius: .35em;
+    border: 2px solid #3B5998;
+
+    background-color: white;
+    color: #3B5998;
+}
+label{
+    display: block;
+}
+label > span{
+    display: inline-block;
+    width: 5em;
+    text-align: right;
+    padding-right: 0.5em;
+}
+em {
+    color: red;
+}
+#getFBLogin {
+    display: none;
+}
+#message {
+    text-align: right;
+    margin: 0.5em;
+    color: #3B5998;
+}
