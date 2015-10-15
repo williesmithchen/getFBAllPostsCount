@@ -2,7 +2,12 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <table className="commentBox">
-        <caption>Result Table</caption>
+        <caption>Result Table: {this.props.id}</caption>
+        <tr>
+          <th>id</th>
+          <th>message</th>
+          <th>type</th>
+        </tr>
         <CommentList />
       </table>
     );
@@ -13,25 +18,34 @@ var CommentList = React.createClass({
   render: function() {
     return (
       <tr className="commentList">
-        <CommentItemTh />
-        <CommentItemTd />
+        <CommentItemID />
+        <CommentItemMessage />
+        <CommentItemType />
       </tr>
     );
   }
 });
 
-var CommentItemTh = React.createClass({
+var CommentItemID = React.createClass({
   render: function() {
     return (
-      <th>{this.props.id}</th>
+      <td>{this.props.id}</td>
     );
   }
 });
 
-var CommentItemTd = React.createClass({
+var CommentItemMessage = React.createClass({
   render: function() {
     return (
       <td>{this.props.message}</td>
+    );
+  }
+});
+
+var CommentItemType = React.createClass({
+  render: function() {
+    return (
+      <td>{this.props.type}</td>
     );
   }
 });

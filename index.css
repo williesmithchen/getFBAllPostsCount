@@ -63,3 +63,9 @@ em {
     margin: 0.5em;
     color: #3B5998;
 }
+table {
+    max-width:640px;
+    min-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+}
