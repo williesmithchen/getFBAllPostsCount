@@ -13,21 +13,25 @@ var CommentList = React.createClass({
   render: function() {
     return (
       <tr className="commentList">
-        <CommentItem />
+        <CommentItemTh />
+        <CommentItemTd />
       </tr>
     );
   }
 });
 
-var CommentItem = React.createClass({
+var CommentItemTh = React.createClass({
   render: function() {
     return (
-      <th className="id">
-        {this.props.id}
-      </th>
-      <td className="message">
-        {this.props.message}
-      </td>
+      <th>{this.props.id}</th>
+    );
+  }
+});
+
+var CommentItemTd = React.createClass({
+  render: function() {
+    return (
+      <td>{this.props.message}</td>
     );
   }
 });
@@ -39,3 +43,7 @@ var Comment = React.createClass({
     );
   }
 });
+
+window.render = function(){
+  ReactDOM.render( <Comment />, document.getElementById('resulttable') );
+};
