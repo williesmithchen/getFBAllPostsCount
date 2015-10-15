@@ -86,6 +86,8 @@ window.loopquery = function(url) {
                 $("#execute").show();
                 console.log("==result==")
                 console.log(window._resultArray);
+                //render
+                window.ReactRender();
             }
 
         });
