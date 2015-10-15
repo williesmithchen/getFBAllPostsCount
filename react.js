@@ -53,7 +53,7 @@ var CommentItemType = React.createClass({
 var Comment = React.createClass({
   render: function() {
     return (
-      <CommentBox />
+      <CommentBox { ...data } />
     );
   }
 });
