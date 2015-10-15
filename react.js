@@ -58,7 +58,7 @@ var Comment = React.createClass({
   },
   render: function() {
     return (
-      <CommentBox { data={this.props.data} } />
+      <CommentBox data={this.props.data} />
     );
   }
 });
