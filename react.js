@@ -45,11 +45,14 @@ var Comment = React.createClass({
 });
 
 window.ReactRender = function(_data) {
-  if(_data) {
+
+  console.log("==ReactRender==");
+
+  // if(_data) {
     var data = {
       id: "test",
       message: "testtest"
     };
     ReactDOM.render( <Comment { ...data } />, document.getElementById('resulttable') );
-  }
+  // }
 };
