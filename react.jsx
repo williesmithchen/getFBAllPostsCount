@@ -17,7 +17,9 @@ var Comment = React.createClass({
 var CommentBox = React.createClass({
   render: function() {
 
-    console.log("==CommentBox==", {this.props});
+    var _data = {this.props};
+
+    console.log("==CommentBox==");
 
     return (
       <table className="commentBox">
