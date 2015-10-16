@@ -63,9 +63,6 @@ var Comment = React.createClass({
 });
 
 window.ReactRender = function(_data) {
-
-  console.log("==ReactRender==");
-
   // if(_data) {
     var data = { id: "td", message: "test" };
     ReactDOM.render( <Comment { ...data } />, document.getElementById('resulttable') );
