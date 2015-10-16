@@ -70,6 +70,6 @@ window.ReactRender = function(_data) {
       id: "test",
       message: "testtest"
     };
-    ReactDOM.render( <Comment { data=data } />, document.getElementById('resulttable') );
+    ReactDOM.render( <Comment data=data />, document.getElementById('resulttable') );
   // }
 };
