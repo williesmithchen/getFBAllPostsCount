@@ -1,5 +1,6 @@
 var CommentBox = React.createClass({
   render: function() {
+
     return (
       <table className="commentBox">
         <caption>Result Table: {this.props.data.id}</caption>
@@ -51,6 +52,7 @@ var CommentItemType = React.createClass({
 
 var Comment = React.createClass({
   render: function() {
+    console.log(this.props.data);
     return (
       <CommentBox { ...this.props.data } />
     );
@@ -62,10 +64,7 @@ window.ReactRender = function(_data) {
   console.log("==ReactRender==");
 
   // if(_data) {
-    var data = {
-      id: "test",
-      message: "testtest"
-    };
+    var data = { id: "test", message: "testtest" };
     ReactDOM.render( <Comment { ...data } />, document.getElementById('resulttable') );
   // }
 };
