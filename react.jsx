@@ -8,7 +8,6 @@ var CommentBox = React.createClass({
           <th>message</th>
           <th>type</th>
         </tr>
-        <CommentList />
       </table>
     );
   }
