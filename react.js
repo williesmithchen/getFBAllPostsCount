@@ -1,6 +1,5 @@
 var CommentBox = React.createClass({
   render: function() {
-
     return (
       <table className="commentBox">
         <caption>Result Table: {this.props.data.id}</caption>
@@ -63,7 +62,7 @@ var Comment = React.createClass({
   }
 });
 
-window.ReactRender = function(_data) {
+window.ReactRender = function() {
 
   console.log("==ReactRender==");
 
