@@ -17,11 +17,7 @@ var Comment = React.createClass({
 var CommentBox = React.createClass({
   render: function() {
 
-    console.log(this.props);
-    // console.log({this.props});
-    // console.log('{this.props}');
-    // console.log(JSON.parse({this.props});
-    // console.log(JSON.parse('{this.props}');
+    var data = this.props;
 
     console.log("==CommentBox==");
 
@@ -33,6 +29,7 @@ var CommentBox = React.createClass({
           <th>message</th>
           <th>type</th>
         </tr>
+        <Comment { ...data } />
       </table>
     );
   }
@@ -48,6 +45,7 @@ window.ReactRender = function(_data) {
       message: "testtest",
       type: "type"
     };
+
     ReactDOM.render( <CommentBox { ...data } />, document.getElementById('resulttable') );
   // }
 };
