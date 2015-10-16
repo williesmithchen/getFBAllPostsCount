@@ -46,7 +46,7 @@ window.ReactRender = function(_data) {
       id: "id",
       message: "testtest",
       type: "type",
-      obj: "{'test':1}"
+      obj: "{test:1}"
     };
 
     ReactDOM.render( <CommentBox { ...data } />, document.getElementById('resulttable') );
