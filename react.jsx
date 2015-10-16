@@ -1,14 +1,14 @@
 var CommentBox = React.createClass({
   render: function() {
-
     return (
       <table className="commentBox">
-        <caption>Result Table: {this.props.data.id} - message:{this.props.data.message}</caption>
+        <caption>Result Table: {this.props.data.id}</caption>
         <tr>
           <th>id</th>
           <th>message</th>
           <th>type</th>
         </tr>
+        <CommentList />
       </table>
     );
   }
@@ -52,12 +52,10 @@ var CommentItemType = React.createClass({
 
 var Comment = React.createClass({
   render: function() {
-    /*var _data = JSON.parse('{this.props.data}');
-    console.log(_data);*/
     return (
       <div>
-        <p>Level 1 :{this.props.data.id} - message:{this.props.data.id}</p>
-        <CommentBox data={this.props.data} />
+        <p>{this.props.data.id}</p>
+        <CommentBox { data={this.props.data} } />
       </div>
     );
   }
@@ -68,7 +66,10 @@ window.ReactRender = function(_data) {
   console.log("==ReactRender==");
 
   // if(_data) {
-    var data = { id: "td", message: "test" };
+    var data = {
+      id: "test",
+      message: "testtest"
+    };
     ReactDOM.render( <Comment { data=data } />, document.getElementById('resulttable') );
   // }
 };
