@@ -55,7 +55,7 @@ var Comment = React.createClass({
     console.log("Comment", _data);
     return (
       <div>
-        <p>Level 1 :{this.props.data.id}-message:{this.props.data.message}</p>
+        <p>id:{this.props.data.id} message:{this.props.data.message}</p>
         <CommentBox data={this.props.data} />
       <div>
     );
