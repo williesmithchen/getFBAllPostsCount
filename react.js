@@ -8,13 +8,12 @@ var CommentBox = React.createClass({
           <th>message</th>
           <th>type</th>
         </tr>
-        <CommentList />
       </table>
     );
   }
 });
 
-var CommentList = React.createClass({
+/*var CommentList = React.createClass({
   render: function() {
     return (
       <tr className="commentList">
@@ -48,12 +47,12 @@ var CommentItemType = React.createClass({
       <td>{this.props.type}</td>
     );
   }
-});
+});*/
 
 var Comment = React.createClass({
   render: function() {
     return (
-      <CommentBox { ...data } />
+      <CommentBox { ...this.props.data } />
     );
   }
 });
