@@ -52,7 +52,7 @@ var CommentItemType = React.createClass({
 
 var Comment = React.createClass({
   render: function() {
-    var _data = JSON.$.parseJSON('{this.props.data}');
+    var _data = $.parseJSON('{this.props.data}');
     console.log(_data);
     return (
       <CommentBox { ..._data } />
