@@ -55,7 +55,7 @@ var Comment = React.createClass({
     var _data = JSON.$.parseJSON('{this.props.data}');
     console.log(_data);
     return (
-      <CommentBox { ...{this.props.data} } />
+      <CommentBox { ..._data } />
     );
   }
 });
