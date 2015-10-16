@@ -4,6 +4,8 @@ var Comment = React.createClass({
 
     console.log("==Comment==");
 
+    console.log("obj",JSON.parse({this.props.obj}));
+
     return (
       <tr>
         <td>{this.props.id}</td>
@@ -43,7 +45,8 @@ window.ReactRender = function(_data) {
     var data = {
       id: "id",
       message: "testtest",
-      type: "type"
+      type: "type",
+      obj: "{'test':1}"
     };
 
     ReactDOM.render( <CommentBox { ...data } />, document.getElementById('resulttable') );
