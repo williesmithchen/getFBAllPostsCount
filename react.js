@@ -3,9 +3,8 @@ var CommentBox = React.createClass({
     var _data = JSON.parse('{this.props.data}');
     console.log("CommentBox", _data);
     return (
-      <p>Level 1 :{this.props.data.id}-message:{this.props.data.message}</p>
       <table className="commentBox">
-        <caption>Result Table: {this.props.data.id}</caption>
+        <caption>Result Table: Level 1 :{this.props.data.id}-message:{this.props.data.message}</caption>
         <tr>
           <th>id</th>
           <th>message</th>
