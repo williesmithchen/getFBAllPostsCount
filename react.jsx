@@ -17,7 +17,10 @@ var Comment = React.createClass({
 var CommentBox = React.createClass({
   render: function() {
 
-    var _data = JSON.parse('{this.props}');
+    console.log({this.props});
+    console.log('{this.props}');
+    console.log(JSON.parse({this.props});
+    console.log(JSON.parse('{this.props}');
 
     console.log("==CommentBox==");
 
