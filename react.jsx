@@ -13,51 +13,6 @@ var CommentBox = React.createClass({
   }
 });
 
-var CommentList = React.createClass({
-  render: function() {
-    return (
-      <tr className="commentList">
-        <CommentItemID />
-        <CommentItemMessage />
-        <CommentItemType />
-      </tr>
-    );
-  }
-});
-
-var CommentItemID = React.createClass({
-  render: function() {
-    return (
-      <td>{this.props.id}</td>
-    );
-  }
-});
-
-var CommentItemMessage = React.createClass({
-  render: function() {
-    return (
-      <td>{this.props.message}</td>
-    );
-  }
-});
-
-var CommentItemType = React.createClass({
-  render: function() {
-    return (
-      <td>{this.props.type}</td>
-    );
-  }
-});
-
-var Comment = React.createClass({
-  render: function() {
-    var data = { this.props.data };
-    return (
-      <CommentBox { ...data } />
-    );
-  }
-});
-
 window.ReactRender = function(_data) {
 
   console.log("==ReactRender==");
