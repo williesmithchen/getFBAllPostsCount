@@ -2,7 +2,7 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <table className="commentBox">
-        <caption>Result Table: {this.props.id}</caption>
+        <caption>Result Table: {this.props.data.id}</caption>
         <tr>
           <th>id</th>
           <th>message</th>
