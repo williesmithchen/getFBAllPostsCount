@@ -1,5 +1,24 @@
+
+var Comment = React.createClass({
+  render: function() {
+
+    console.log("==Comment==");
+
+    return (
+      <tr>
+        <td>{this.props.id}</td>
+        <td>{this.props.message}</td>
+        <td>{this.props.type}</td>
+      </tr>
+    );
+  }
+});
+
 var CommentBox = React.createClass({
   render: function() {
+
+    console.log("==CommentBox==", {this.props});
+
     return (
       <table className="commentBox">
         <caption>Result Table: {this.props.id}</caption>
@@ -19,8 +38,9 @@ window.ReactRender = function(_data) {
 
   // if(_data) {
     var data = {
-      id: "test",
-      message: "testtest"
+      id: "id",
+      message: "testtest",
+      type: "type"
     };
     ReactDOM.render( <CommentBox { ...data } />, document.getElementById('resulttable') );
   // }
