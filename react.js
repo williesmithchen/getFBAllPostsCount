@@ -52,9 +52,10 @@ var CommentItemType = React.createClass({
 
 var Comment = React.createClass({
   render: function() {
-    console.log(this.props.data);
+    var _data = {this.props.data};
+    console.log(_data, {this.props.data});
     return (
-      <CommentBox { ...this.props.data } />
+      <CommentBox { ...{this.props.data} } />
     );
   }
 });
