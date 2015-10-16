@@ -56,7 +56,8 @@ var Comment = React.createClass({
     console.log(_data);*/
     return (
       <div>
-        <p>Test:{this.props.data.id}</p>
+        <p>Level 1 :{this.props.data.id} - message:{this.props.data.id}</p>
+        <CommentBox data={this.props.data} />
       </div>
     );
   }
@@ -68,6 +69,6 @@ window.ReactRender = function(_data) {
 
   // if(_data) {
     var data = { id: "td", message: "test" };
-    ReactDOM.render( <Comment { ...data } />, document.getElementById('resulttable') );
+    ReactDOM.render( <Comment { data=data } />, document.getElementById('resulttable') );
   // }
 };
