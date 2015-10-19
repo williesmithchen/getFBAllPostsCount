@@ -161,7 +161,7 @@ window.getFBLogin = function() {
             window.location.replace( window.location.href );
 
         },{
-            //scope: 'read_insights'
+            scope: 'user_posts'
         });
 
     }
