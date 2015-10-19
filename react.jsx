@@ -36,9 +36,9 @@ var CommentBox = React.createClass({
         <thead>
           <tr>
             <th>No:</th>
-            <th>id</th>
-            <th>type</th>
-            <th>message</th>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Message</th>
           </tr>
         </thead>
         <tbody>

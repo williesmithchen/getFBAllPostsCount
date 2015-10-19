@@ -74,6 +74,7 @@ tr {
     margin-bottom: 0.35em;
 }
 th {
+    font-weight: bold;
     text-align: center;
 
     word-break: break-all;
