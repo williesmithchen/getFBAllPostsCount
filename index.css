@@ -86,3 +86,6 @@ td {
     word-break: break-all;
     word-wrap: break-word;
 }
+td:nth-child(odd) {
+    text-align: center;
+}
