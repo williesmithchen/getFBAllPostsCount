@@ -15,8 +15,11 @@ var Comment = React.createClass({
         <td>
           <p>{this.props.data.message}</p>
           {(() => {
-            if (this.props.data.type === 'link') {
-              <p>Share Link:<a href="{this.props.data.link}" target="_blank">{this.props.data.link}</a></p>
+            switch (this.props.data.type) {
+              case "link":
+                return <p>Share Link:<a href="{this.props.data.link}" target="_blank">{this.props.data.link}</a></p>;
+              default:
+                return "";
             }
           })()}
         </td>
