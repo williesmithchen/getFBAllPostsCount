@@ -27,12 +27,12 @@ var CommentBox = React.createClass({
 
     console.log("==CommentBox==", this.props);
 
-    var Items = this.state.map(function (posts, index) {
-        console.log("==posts==", {posts});
+    var Items = this.props.map(function (posts, index) {
+        console.log("==posts==", posts, index);
         return (
             <Comment key={ index } { ...posts } />
         );
-    }, this);
+    });
 
     return (
       <table className="commentBox">
