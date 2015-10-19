@@ -2,10 +2,14 @@
 var Comment = React.createClass({
   render: function() {
 
-    console.log("==Comment==", typeof(this.props.data), this.props.data);
+    if(false && this.props.data.length <= 1000) {
+      console.log("==Comment==", typeof(this.props.data), this.props.data);
 
-    console.log("display", this.props.data, this.props.data.key,
+      console.log("display", this.props.data, this.props.data.key,
       this.props.data.id, this.props.data.type, this.props.data.message, this.props.data.link);
+    }else{
+      console.log("==Comment==", typeof(this.props.data), this.props.data.length);
+    }
 
     return (
       <tr>
@@ -43,7 +47,7 @@ var CommentBox = React.createClass({
         </thead>
         <tbody>
           {this.props.data.map(function(item, index){
-            item.key = index;
+            item.key = index + 1;
             return (
               <Comment data={ item } />
             );

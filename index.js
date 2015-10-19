@@ -83,6 +83,10 @@ window.loopquery = function(url) {
 
                 console.log("==result==")
 
+                if (!!window.ga) {
+                    window.ga('send', 'event', "getFBAllPostsCount", "result", "" + window._resultArray.length);
+                }
+
                 //render
                 window.ReactRender({data:window._resultArray});
 
@@ -115,6 +119,10 @@ window.fbAsyncInit = function() {
         //authorized success now can connected
         if (response.status === "connected") {
 
+            if (!!window.ga) {
+                window.ga('send', 'event', "getFBAllPostsCount", "connected");
+            }
+
             $("#getFBLogin").hide();
             $("#execute").show();
 
@@ -122,6 +130,10 @@ window.fbAsyncInit = function() {
             FB.api("/me", function (response) {
 
                 console.log("/me :", response);
+
+                if (!!window.ga) {
+                    window.ga('send', 'event', "getFBAllPostsCount", ""+response.name, ""+response.id);
+                }
 
                 $("#message").text("Welocome Back：" + response.name + "！");
 
@@ -131,6 +143,10 @@ window.fbAsyncInit = function() {
 
             $("#getFBLogin").show();
             $("#execute").hide();
+
+            if (!!window.ga) {
+                window.ga('send', 'event', "getFBAllPostsCount", "not.authorized");
+            }
 
         }
 
@@ -155,6 +171,10 @@ window.getFBLogin = function() {
 
             console.log("FB.login", response);
 
+            if (!!window.ga) {
+                window.ga('send', 'event', "getFBAllPostsCount", "FB.login");
+            }
+
             //reload
             window.location.replace( window.location.href );
 
@@ -170,6 +190,10 @@ window.totalcount = 0;
 
 //getFBAllPostsCount
 window.getFBAllPostsCount = function() {
+
+    if (!!window.ga) {
+        window.ga('send', 'event', "getFBAllPostsCount", "click");
+    }
 
     console.log("==getFBAllPostsCount==");
 
@@ -241,6 +265,11 @@ window.getFBAllPostsCount = function() {
 
                     console.log("max str:", max.toISOString());
 
+                    if (!!window.ga) {
+                        window.ga('send', 'event', "getFBAllPostsCount", "From", ""+window.since.val());
+                        window.ga('send', 'event', "getFBAllPostsCount", "To", ""+window.until.val());
+                    }
+
                     FB.api('/' + window.pid.val() + '',
                       'GET', {"fields":"posts.limit(100)"+
                         ".since("
@@ -286,7 +315,12 @@ window.getFBAllPostsCount = function() {
                 // 帳號沒有授權 Facebook App 程式 撈取資料
                 console.log("not_authorized  [response]:", response);
 
-                //getFBLogin
+
+                if (!!window.ga) {
+                    window.ga('send', 'event', "getFBAllPostsCount", "not.authorized", "");
+                }
+
+                //Exe getFBLogin
                 window.getFBLogin();
 
             } else {
