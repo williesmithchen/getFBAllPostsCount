@@ -4,8 +4,6 @@ var Comment = React.createClass({
 
     console.log("==Comment==");
 
-    console.log("obj",JSON.parse(this.props.obj));
-
     return (
       <tr>
         <td>{this.props.id}</td>
