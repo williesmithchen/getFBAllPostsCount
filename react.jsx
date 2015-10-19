@@ -27,8 +27,8 @@ var CommentBox = React.createClass({
     console.log("==CommentBox==", typeof(this.props), this.props);
 
     var dataArray = [];//this.props
-    for (var i = 0; i < this.props; i++) {
-      dataArray.push(<Comment { ...result } />);
+    for (var i = 0; i < this.props.data; i++) {
+      dataArray.push(<Comment key=i {...this.props.data[i]} />);
     }
 
     return (
