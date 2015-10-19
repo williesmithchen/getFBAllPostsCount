@@ -10,7 +10,9 @@ var Comment = React.createClass({
     return (
       <tr>
         <td>{this.props.data.key}</td>
-        <td>{this.props.data.id}</td>
+        <td>
+          <a href={'https://www.facebook.com/'+this.props.data.id}>{this.props.data.id}</a>
+        </td>
         <td>{this.props.data.type}</td>
         <td>
           <p>{this.props.data.message}</p>
@@ -31,18 +33,22 @@ var CommentBox = React.createClass({
     return (
       <table className="commentBox">
         <caption>Result Table</caption>
-        <tr>
-          <th>No:</th>
-          <th>id</th>
-          <th>type</th>
-          <th>message</th>
-        </tr>
-        {this.props.data.map(function(item, index){
-          item.key = index;
-          return (
-            <Comment data={ item } />
-          );
-        })}
+        <thead>
+          <tr>
+            <th>No:</th>
+            <th>id</th>
+            <th>type</th>
+            <th>message</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.data.map(function(item, index){
+            item.key = index;
+            return (
+              <Comment data={ item } />
+            );
+          })}
+        </tbody>
       </table>
     );
   }
