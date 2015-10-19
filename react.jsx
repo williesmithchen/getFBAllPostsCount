@@ -23,7 +23,9 @@ var Comment = React.createClass({
 var CommentBox = React.createClass({
   createComments: function(items) {
     var output = [];
-    for(var i = 0; i < items.length; i++) output.push(<li>{items[i]}</li>);
+    for(var i = 0; i < items.length; i++) {
+      output.push(<Comment { ...items[i] } />);
+    }
     return output;
   },
   render: function() {
