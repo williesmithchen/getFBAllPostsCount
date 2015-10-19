@@ -20,11 +20,23 @@ var Comment = React.createClass({
 });
 
 var CommentBox = React.createClass({
+  getInitialState: function () {
+      return {
+          postlist: this.props,
+      }
+  },
   render: function() {
 
     var data = this.props;
 
     console.log("==CommentBox==", this.props);
+
+    //// 請加入購物車項目的邏輯
+    var Items = this.state.postlist.map(function (posts, index) {
+        return (
+            <Comment { ...posts } />
+        );
+    }, this);
 
     return (
       <table className="commentBox">
@@ -34,7 +46,7 @@ var CommentBox = React.createClass({
           <th>type</th>
           <th>message</th>
         </tr>
-        <Comment { ...data } />
+        {{Items}}
       </table>
     );
   }
