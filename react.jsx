@@ -14,7 +14,11 @@ var Comment = React.createClass({
         <td>{this.props.data.type}</td>
         <td>
           <p>{this.props.data.message}</p>
-          <p>{this.props.data.link}</p>
+          {(() => {
+            if (this.props.data.type === 'link') {
+              <p>Share Link:<a href="{this.props.data.link}" target="_blank">{this.props.data.link}</a></p>
+            }
+          })()}
         </td>
       </tr>
     );
@@ -30,9 +34,9 @@ var CommentBox = React.createClass({
       <table className="commentBox">
         <caption>Result Table</caption>
         <tr>
-          <th>No:</th>
-          <th>id</th>
-          <th>type</th>
+          <th style="width:3em;">No:</th>
+          <th style="width:5em;">id</th>
+          <th style="width:5em;">type</th>
           <th>message</th>
         </tr>
         {this.props.data.map(function(item, index){

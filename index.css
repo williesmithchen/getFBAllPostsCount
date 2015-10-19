@@ -75,9 +75,6 @@ th {
     word-break: break-all;
     word-wrap: break-word;
 }
-th:first-child {
-    width:3em;
-}
 td {
     text-align: left;
 
