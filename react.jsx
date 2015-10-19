@@ -27,13 +27,6 @@ var CommentBox = React.createClass({
 
     console.log("==CommentBox==", this.props);
 
-    var Items = this.props.map(function (posts, index) {
-        console.log("==posts==", posts, index);
-        return (
-            <Comment key={ index } { ...posts } />
-        );
-    });
-
     return (
       <table className="commentBox">
         <caption>Result Table</caption>
@@ -43,7 +36,9 @@ var CommentBox = React.createClass({
           <th>type</th>
           <th>message</th>
         </tr>
-        {Items}
+        {this.props.map(function(result, index) {
+          return <Comment { ...result } key={ index } />;
+        })}
       </table>
     );
   }
