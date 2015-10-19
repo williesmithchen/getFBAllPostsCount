@@ -61,8 +61,8 @@ window.loopquery = function(url) {
                     //Count Total
                     window.totalcount = window.totalcount + response.data.length;
                     //push
-                    for(var p = 0; p < response.posts.data.length; p++) {
-                        window._resultArray.push(response.posts.data[p]);
+                    for(var p = 0; p < response.data.length; p++) {
+                        window._resultArray.push(response.data[p]);
                     }
                     //output result
                     window._result.text(Math.max(window.totalcount, window._resultArray.length));

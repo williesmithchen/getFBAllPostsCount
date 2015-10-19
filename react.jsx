@@ -24,7 +24,7 @@ var CommentBox = React.createClass({
 
     var data = this.props;
 
-    console.log("==CommentBox==");
+    console.log("==CommentBox==", this.props);
 
     return (
       <table className="commentBox">
@@ -42,7 +42,7 @@ var CommentBox = React.createClass({
 
 window.ReactRender = function(_data) {
 
-  console.log("==ReactRender==");
+  console.log("==ReactRender==", _data);
 
   if(_data) {
 
