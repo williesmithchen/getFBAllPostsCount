@@ -21,18 +21,14 @@ var Comment = React.createClass({
 });
 
 var CommentBox = React.createClass({
-  getInitialState: function () {
-      return {
-          postlist: this.props
-      }
-  },
   render: function() {
 
     var data = this.props;
 
     console.log("==CommentBox==", this.props);
 
-    var Items = this.state.postlist.map(function (posts, index) {
+    var Items = this.state.map(function (posts, index) {
+        console.log("==posts==", {posts});
         return (
             <Comment key={ index } { ...posts } />
         );
@@ -47,7 +43,7 @@ var CommentBox = React.createClass({
           <th>type</th>
           <th>message</th>
         </tr>
-        {{Items}}
+        {Items}
       </table>
     );
   }
