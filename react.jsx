@@ -4,7 +4,7 @@ var Comment = React.createClass({
 
     console.log("==Comment==");
 
-    console.log("display", {this.props.id}, {this.props.type}, {this.props.message}, {this.props.link});
+    console.log("display", this.props.id, this.props.type, this.props.message, this.props.link);
 
     return (
       <tr>
