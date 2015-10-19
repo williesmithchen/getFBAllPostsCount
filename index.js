@@ -84,7 +84,7 @@ window.loopquery = function(url) {
                 console.log("==result==")
 
                 //render
-                window.ReactRender(window._resultArray);
+                window.ReactRender({data:window._resultArray});
 
             }
 

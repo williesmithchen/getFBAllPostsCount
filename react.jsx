@@ -24,9 +24,12 @@ var Comment = React.createClass({
 var CommentBox = React.createClass({
   render: function() {
 
-    var data = this.props;
-
     console.log("==CommentBox==", typeof(this.props), this.props);
+
+    var dataArray = [];//this.props
+    for (var i = 0; i < this.props; i++) {
+      dataArray.push(<Comment ></span>);
+    }
 
     return (
       <table className="commentBox">
