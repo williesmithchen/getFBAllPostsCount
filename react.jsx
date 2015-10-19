@@ -14,7 +14,9 @@ var Comment = React.createClass({
         <td>{this.props.data.type}</td>
         <td>
           <p>{this.props.data.message}</p>
-          <p>{this.props.data.link}</p>
+          <p>
+            <a href={this.props.data.link}>{this.props.data.link}</a>
+          </p>
         </td>
       </tr>
     );
