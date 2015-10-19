@@ -41,14 +41,9 @@ window.ReactRender = function(_data) {
 
   console.log("==ReactRender==");
 
-  // if(_data) {
-    var data = {
-      id: "id",
-      message: "testtest",
-      type: "type",
-      obj: '{"test":1}'
-    };
+  if(_data) {
 
-    ReactDOM.render( <CommentBox { ...data } />, document.getElementById('resulttable') );
-  // }
+    ReactDOM.render( <CommentBox { ..._data } />, document.getElementById('resulttable') );
+
+  }
 };
