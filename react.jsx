@@ -4,12 +4,12 @@ var Comment = React.createClass({
 
     console.log("==Comment==", typeof(this.props), this.props);
 
-    console.log("display", this.props.key, this.props.data,
+    console.log("display", this.props.thekey, this.props.data,
       this.props.data.id, this.props.data.type, this.props.data.message, this.props.data.link);
 
     return (
       <tr>
-        <td>{this.props.key}</td>
+        <td>{this.props.thekey}</td>
         <td>{this.props.data.id}</td>
         <td>{this.props.data.type}</td>
         <td>
@@ -37,7 +37,7 @@ var CommentBox = React.createClass({
         </tr>
         {this.props.data.map(function(item, index){
           return (
-            <Comment data={ item } key={ index } />
+            <Comment data={ item } thekey={ index } />
           );
         })}
       </table>
