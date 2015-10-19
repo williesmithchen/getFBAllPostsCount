@@ -2,7 +2,7 @@
 var Comment = React.createClass({
   render: function() {
 
-    console.log("==Comment==");
+    console.log("==Comment==", typeof(this.props), this.props);
 
     console.log("display", this.props, this.props.key,
       this.props.id, this.props.type, this.props.message, this.props.link);
@@ -50,7 +50,7 @@ var CommentBox = React.createClass({
 
 window.ReactRender = function(_data) {
 
-  console.log("==ReactRender==", _data);
+  console.log("==ReactRender==", typeof(_data), _data);
 
   if(_data) {
 
