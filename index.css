@@ -68,6 +68,7 @@ table {
     min-width: 320px;
     width: 100%;
     margin: 0 auto;
+    border-collapse: collapse;
 }
 tr {
     margin-bottom: 0.35em;
