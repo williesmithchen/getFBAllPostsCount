@@ -36,7 +36,7 @@ var CommentBox = React.createClass({
           <th>message</th>
         </tr>
         {this.props.data.map(function(item, index){
-          <Comment {...item} key={index} />
+          <Comment data={ item } key={index} />
         })}
       </table>
     );
