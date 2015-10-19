@@ -28,7 +28,7 @@ var CommentBox = React.createClass({
 
     var dataArray = [];//this.props
     for (var i = 0; i < this.props; i++) {
-      dataArray.push(<Comment ></span>);
+      dataArray.push(<Comment { ...result } />);
     }
 
     return (
@@ -40,9 +40,7 @@ var CommentBox = React.createClass({
           <th>type</th>
           <th>message</th>
         </tr>
-        {this.props.map(function(result, index) {
-          return <Comment { ...result } key={index} />;
-        })}
+        {dataArray}
       </table>
     );
   }
