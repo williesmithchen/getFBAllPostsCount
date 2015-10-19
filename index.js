@@ -54,28 +54,23 @@ window.loopquery = function(url) {
 
         $.get(url, function(response) {
 
-            console.log(response);
-
             //is no error
             if (response && !response.error) {
 
-                console.log(response);
-                console.log(response.data);
-                console.log(response.data.length);
-
                 if (!!response && !!response.data && response.data.length != 0) {
+                    //Count Total
                     window.totalcount = window.totalcount + response.data.length;
-                    //output result
-                    window._result.text(window.totalcount);
                     //push
-                    window._resultArray.push(response.data);
+                    for(var p = 0; p < response.posts.data.length; p++) {
+                        window._resultArray.push(response.posts.data[p]);
+                    }
+                    //output result
+                    window._result.text(Math.max(window.totalcount, window._resultArray.length));
                 }
             }
 
             //if over 100 && has next
             if(!!response && !!response.paging && !!response.paging.next) {
-                console.log(response.paging);
-                console.log(response.paging.next);
 
                 setTimeout(function() {
                     window.loopquery(response.paging.next);
@@ -83,11 +78,14 @@ window.loopquery = function(url) {
             }
 
             if(!!response && !!response.data && response.data.length === 0) {
+
                 $("#execute").show();
+
                 console.log("==result==")
-                console.log(window._resultArray);
+
                 //render
-                window.ReactRender();
+                window.ReactRender(window._resultArray);
+
             }
 
         });
@@ -257,26 +255,25 @@ window.getFBAllPostsCount = function() {
 
                             if (!!response && !!response.posts && !!response.posts.data && response.posts.data.length >= 0) {
 
-                                console.log(response);
-                                console.log(response.posts);
-                                console.log(response.posts.data);
-                                console.log(response.posts.data.length);
-
+                                //Count Total
                                 window.totalcount = window.totalcount + response.posts.data.length;
-                                //output result
-                                window._result.text(window.totalcount);
+
                                 //push
-                                window._resultArray.push(response.posts.data);
+                                for(var p = 0; p < response.posts.data.length; p++) {
+                                    window._resultArray.push(response.posts.data[p]);
+                                }
+
+                                //output result
+                                window._result.text(Math.max(window.totalcount, window._resultArray.length));
+
                             }
                         }
 
                         //if over 100 && has next
                         if(!!response && !!response.posts && !!response.posts.paging && !!response.posts.paging.next) {
 
-                            console.log(response.posts.paging);
-                            console.log(response.posts.paging.next);
-
                             window.loopquery(response.posts.paging.next);
+
                         }
 
                       }
