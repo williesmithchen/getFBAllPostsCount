@@ -89,7 +89,7 @@ th {
     word-wrap: break-word;
 
     min-width: 5em;
-    min-height: 3em;
+    height: 3em;
 }
 th:first-child{
     min-width: 3em;
