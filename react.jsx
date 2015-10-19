@@ -17,7 +17,7 @@ var Comment = React.createClass({
         <td>
           <p>{this.props.data.message}</p>
           <p>
-            <a href={this.props.data.link} target="_blank">{this.props.data.link}</a>
+            <a className="link" href={this.props.data.link} target="_blank">{this.props.data.link}</a>
           </p>
         </td>
       </tr>
