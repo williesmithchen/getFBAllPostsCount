@@ -69,19 +69,27 @@ table {
     width: 100%;
     margin: 0 auto;
     border-collapse: separate;
-    border-spacing: 0 0.35em;
+    border-spacing: 0.35em 0 0.85em 0;
 }
 tr {
     margin-bottom: 0.35em;
 }
+tr:nth-child(even) {
+    background: #cccccc;
+}
+tr:hover {
+    background-color: #DAC96D;
+}
 th {
     font-weight: bold;
     text-align: center;
+    vertical-align: middle;
 
     word-break: break-all;
     word-wrap: break-word;
 
     min-width: 5em;
+    min-height: 3em;
 }
 th:first-child{
     min-width: 3em;
