@@ -11,13 +11,13 @@ var Comment = React.createClass({
       <tr>
         <td>{this.props.data.key}</td>
         <td>
-          <a href={'https://www.facebook.com/'+this.props.data.id}>{this.props.data.id}</a>
+          <a href={'https://www.facebook.com/'+this.props.data.id} target="_blank">{this.props.data.id}</a>
         </td>
         <td>{this.props.data.type}</td>
         <td>
           <p>{this.props.data.message}</p>
           <p>
-            <a href={this.props.data.link}>{this.props.data.link}</a>
+            <a href={this.props.data.link} target="_blank">{this.props.data.link}</a>
           </p>
         </td>
       </tr>
