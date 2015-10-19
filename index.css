@@ -94,6 +94,9 @@ em {
 #resulttable th:first-child{
     min-width: 3em;
 }
+#resulttable th:last-child{
+    text-align: left;
+}
 #resulttable td {
     text-align: left;
 
