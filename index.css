@@ -69,3 +69,18 @@ table {
     width: 100%;
     margin: 0 auto;
 }
+th {
+    text-align: center;
+
+    word-break: break-all;
+    word-wrap: break-word;
+}
+th:first-child {
+    width:3em;
+}
+td {
+    text-align: left;
+
+    word-break: break-all;
+    word-wrap: break-word;
+}
