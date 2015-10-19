@@ -4,7 +4,8 @@ var Comment = React.createClass({
 
     console.log("==Comment==");
 
-    console.log("display", this.props, this.props.key, this.props.id, this.props.type, this.props.message, this.props.link);
+    console.log("display", this.props, this.props.key,
+      this.props.id, this.props.type, this.props.message, this.props.link);
 
     return (
       <tr>
@@ -21,18 +22,11 @@ var Comment = React.createClass({
 });
 
 var CommentBox = React.createClass({
-  createComments: function(items) {
-    var output = [];
-    for(var i = 0; i < items.length; i++) {
-      output.push(<Comment { ...items[i] } />);
-    }
-    return output;
-  },
   render: function() {
 
     var data = this.props;
 
-    console.log("==CommentBox==", this.props);
+    console.log("==CommentBox==", typeof(this.props), this.props);
 
     return (
       <table className="commentBox">
@@ -43,7 +37,9 @@ var CommentBox = React.createClass({
           <th>type</th>
           <th>message</th>
         </tr>
-        {this.createComments(this.props)}
+        {this.props.map(function(result, index) {
+          return <Comment { ...result } key={index} />;
+        })}
       </table>
     );
   }
