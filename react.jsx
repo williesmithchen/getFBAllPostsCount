@@ -4,7 +4,7 @@ var Comment = React.createClass({
 
     console.log("==Comment==");
 
-    console.log("display", this.props.id, this.props.type, this.props.message, this.props.link);
+    console.log("display", this.props, this.props.id, this.props.type, this.props.message, this.props.link);
 
     return (
       <tr>
@@ -28,7 +28,7 @@ var CommentBox = React.createClass({
 
     return (
       <table className="commentBox">
-        <caption>Result Table: {this.props.id}</caption>
+        <caption>Result Table</caption>
         <tr>
           <th>id</th>
           <th>type</th>
