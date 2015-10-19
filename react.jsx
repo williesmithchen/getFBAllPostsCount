@@ -4,10 +4,11 @@ var Comment = React.createClass({
 
     console.log("==Comment==");
 
-    console.log("display", this.props, this.props.id, this.props.type, this.props.message, this.props.link);
+    console.log("display", this.props, this.props.key, this.props.id, this.props.type, this.props.message, this.props.link);
 
     return (
       <tr>
+        <td>{this.props.key}</td>
         <td>{this.props.id}</td>
         <td>{this.props.type}</td>
         <td>
@@ -22,7 +23,7 @@ var Comment = React.createClass({
 var CommentBox = React.createClass({
   getInitialState: function () {
       return {
-          postlist: this.props,
+          postlist: this.props
       }
   },
   render: function() {
@@ -31,10 +32,9 @@ var CommentBox = React.createClass({
 
     console.log("==CommentBox==", this.props);
 
-    //// 請加入購物車項目的邏輯
     var Items = this.state.postlist.map(function (posts, index) {
         return (
-            <Comment { ...posts } />
+            <Comment key={ index } { ...posts } />
         );
     }, this);
 
@@ -42,6 +42,7 @@ var CommentBox = React.createClass({
       <table className="commentBox">
         <caption>Result Table</caption>
         <tr>
+          <th>No:</th>
           <th>id</th>
           <th>type</th>
           <th>message</th>
