@@ -74,6 +74,11 @@ th {
 
     word-break: break-all;
     word-wrap: break-word;
+
+    min-width: 5em;
+}
+th:first-child{
+    min-width: 3em;
 }
 td {
     text-align: left;
