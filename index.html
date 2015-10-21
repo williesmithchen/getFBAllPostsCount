@@ -126,15 +126,15 @@
                 <button id="getFBLogin" onClick="getFBLogin();">Facebook Login</button>
                 <div id="execute">
                     <label for="pid">
-                        <span><em>*</em>Pid：</span>
-                        <input id="pid" type="text" name="since" placeholder="fanspagename,fbid..." />
+                        <span><em>*</em>FPId：</span>
+                        <input id="pid" type="text" name="pid" placeholder="FansPageID..." />
                     </label>
                     <label for="since">
-                        <span>Since：</span>
+                        <span>Since(From)：</span>
                         <input id="since" type="text" class="inputdate" name="since" placeholder="Default is Browse Local Time Today(00:00:00)" />
                     </label>
                     <label for="until">
-                        <span>Until：</span>
+                        <span>Until(To)：</span>
                         <input id="until" type="text" class="inputdate" name="until" placeholder="Default is Browse Local Time Today(23:59:59)" />
                     </label>
                     <button onClick="window.getFBAllPostsCount();">Execute</button>
