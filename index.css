@@ -12,7 +12,7 @@ div.fb-like {
 }
 header > div {
     text-align: right;
-    padding-top: 1em;
+    padding-top: .5em;
 }
 header,main,footer {
     max-width:640px;
@@ -22,6 +22,7 @@ header,main,footer {
 }
 header {
     margin-top: 1em;
+    padding-top: 1em;
 }
 main > div {
     text-align: center;
